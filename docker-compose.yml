@@ -1,0 +1,11 @@
+uwsgi:
+    image: uwsgi
+
+nginx:
+    image: nginx
+    links:
+        - uwsgi
+    volumes:
+        - conf:/etc/nginx/conf.d/
+    ports:
+        - "80:80"
